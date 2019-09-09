@@ -18,5 +18,28 @@ namespace App1
             conn.CreateTable<Person>();
          
         }
+
+        //CRUD OPERATIONS O METODOS
+
+        //CREAR
+
+        public void CreatePerson(Person newPerson)
+            {
+               
+                int result = 0;
+                result=conn.Insert(newPerson);
+            if(result==1)
+                {
+                    StatusMessage= $"{result} registro agregados [Nombre:" + 
+                    $"{newPerson.Name}, ID:{newPerson.Id}]";
+
+                // un registro agregado[Nombre: Juan , Id:1]
+                }
+            else
+                {
+                     StatusMessage= $" registro no agregado!";
+                }
+
+            }
     }
 }
