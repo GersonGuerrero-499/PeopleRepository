@@ -5,7 +5,7 @@ using SQLite;
 using App1.Model;
 namespace App1
 {
-   public class PersonRepositoryCRUD
+    public class PersonRepositoryCRUD
     {
         SQLiteConnection conn;
 
@@ -16,7 +16,7 @@ namespace App1
             //creamos la conexion
             conn = new SQLiteConnection(dbPath);
             conn.CreateTable<Person>();
-         
+
         }
 
         //CRUD OPERATIONS O METODOS
@@ -24,22 +24,24 @@ namespace App1
         //CREAR
 
         public void CreatePerson(Person newPerson)
+        {
+
+            int result = 0;
+            result = conn.Insert(newPerson);
+            if (result == 1)
             {
-               
-                int result = 0;
-                result=conn.Insert(newPerson);
-            if(result==1)
-                {
-                    StatusMessage= $"{result} registro agregados [Nombre:" + 
-                    $"{newPerson.Name}, ID:{newPerson.Id}]";
+                StatusMessage = "{result} registro agregados [Nombre:" +
+                "{newPerson.Name}, ID:{newPerson.Id}]";
 
                 // un registro agregado[Nombre: Juan , Id:1]
-                }
-            else
-                {
-                     StatusMessage= $" registro no agregado!";
-                }
-
             }
+            else
+            {
+                StatusMessage = $" registro no agregado!";
+            }
+
+        }
+
     }
 }
+

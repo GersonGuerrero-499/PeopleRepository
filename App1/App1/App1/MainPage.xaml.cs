@@ -13,5 +13,15 @@ namespace App1
         {
             InitializeComponent();
         }
+
+        private void Btnenviar_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btngetperson_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
